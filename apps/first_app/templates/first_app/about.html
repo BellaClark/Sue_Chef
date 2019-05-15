@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="static/first_app/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Libre+Baskerville|Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Sue Chef</title>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            
+
+            $('.nav').on('click', function () {
+                $('#cover').css('opacity', '.6');
+                $('#cover').css('visibility', 'visible');
+                $('#menu').css('opacity', '1');
+                $('#menu').css('visibility', 'visible');
+            });
+            
+            $('.exit-menu').on('click', function () {
+                $('#cover').css('opacity', '0');
+                $('#cover').css('visibility', 'hidden');
+                $('#menu').css('opacity', '0');
+                $('#menu').css('visibility', 'hidden');
+            });
+
+            $('#cover').on('click', function () {
+                $('#cover').css('opacity', '0');
+                $('#cover').css('visibility', 'hidden');
+                $('#menu').css('opacity', '0');
+                $('#menu').css('visibility', 'hidden');
+            });
+        });
+    </script>
+    <div class="header">
+        <a href="#"><img class="nav" src="static/first_app/images/menu.png" /></a>
+        <a href="/"><img class="main-logo" src="static/first_app/images/logo-full.png" /></a>
+        <a href="/"><img class="profile" src="static/first_app/images/profile.png" /></a>
+    </div>
+
+    <h2>about</h2>
+
+    <div id="cover"></div>
+    <div id="menu">
+        <img class="exit-menu" style="width:30px; padding: 70px 0px 40px 0px;" src="static/first_app/images/exit.png" />
+        <div class="menu-option">
+            <img style="width:15px;" src="static/first_app/images/menu-arrow.png" />
+            <a href="/"><h2>All Recipes</h2></a>
+        </div>
+        <div class="menu-option">
+            <img style="width:15px;" src="static/first_app/images/menu-arrow.png" />
+            <a href="/add_recipe"><h2>Add a Recipe</h2></a>
+        </div>
+        <div class="menu-option">
+            <img style="width:15px;" src="static/first_app/images/menu-arrow.png" />
+            <a href="/about"><h2>About</h2></a>
+        </div>
+    </div>
+</body>
+
+</html>

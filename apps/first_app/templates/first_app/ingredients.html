@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="static/first_app/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Libre+Baskerville|Montserrat" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="static/first_app/images/fav.png" />
+    <title>Sue Chef</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/addons/p5.dom.js"></script>
+    <script src="static/first_app/js/p5.speech.js"></script>
+    <script>
+        var sue = new P5.Speech(); // speech synthesis object
+        sue.speak('hi there'); // say something 
+
+        var foo = new P5.SpeechRec(); // speech recognition object (will prompt for mic access)
+        sue.onResult = showResult; // bind callback function to trigger when speech is recognized
+        sue.start(); // start listening
+
+        function showResult() {
+            console.log(sue.resultString); // log the result
+        }
+    </script>
+</head>
+
+<body style="background-color: #86a7a7; padding: 20px 30px; color: white;">
+    <h2><span>Step</span> 1 <span>of</span> 10</h2>
+
+    <div class="step-instruction">
+        <h1>Lets get out the ingredients, you will need:</h1>
+        <div class="instruction-elements">
+            <h2>low sodium soy sauce</h2>
+            <h2>1 lb sushi grade yellowfin tuna</h2>
+            <h2>2 mangos</h2>
+            <h2>1 lime</h2>
+            <h2>1 shallot</h2>
+            <h2>toasted sesame seeds</h2>
+            <h2>2 ripe avaocados</h2>
+        </div>
+    </div>
+
+    <div class="controls" style="position:fixed;">
+        <a href="/"><img class="arrow" src="static/first_app/images/back.png" /></a>
+        <a href="/"><img style="width:150px;" src="static/first_app/images/replay.png" /></a>
+        <a href="/"><img class="arrow" src="static/first_app/images/next.png" /></a>
+    </div>
+
+    <div class="recipe-home logo">
+        <a href="/"><img class="recipe-pic" style="width:50px;" src="static/first_app/images/logo-white.png" /></a>
+    </div>
+</body>
+
+</html>
