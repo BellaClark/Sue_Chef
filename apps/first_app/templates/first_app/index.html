@@ -51,28 +51,46 @@
     </div>
 
     <div class="recipes">
-        {% for r in recipes %}
-        <a href="/recipe_page/{{ r.id }}" style="text-decoration: none;">
+        <a href="/recipe_page/{{ tuna.id }}" style="text-decoration: none;">
             <div class="recipe">
-                <img class="recipe-pic" src="{{ r.main_photo.url }}" />
-                <h1>{{ r.title|title }}</h1>
+                <img class="recipe-pic" src="static/first_app/images/tp.png" />
+                <h1>{{ tuna.title|title }}</h1>
                 <div class="icons">
                     <div class="icon">
                         <img src="static/first_app/images/time.png" />
-                        <p>{{ r.time_to_cook }} min</p>
+                        <p>{{ tuna.time_to_cook }} min</p>
                     </div>
                     <div class="icon">
                         <img src="static/first_app/images/servings.png" />
-                        <p>{{ r.servings }} srvs</p>
+                        <p>{{ tuna.servings }} srvs</p>
                     </div>
                     <div class="icon">
                         <img src="static/first_app/images/calories.png" />
-                        <p>{{ r.cals_per_serv }} cals</p>
+                        <p>{{ tuna.cals_per_serv }} cals</p>
                     </div>
                 </div>
             </div>
         </a>
-        {% endfor %}
+        <a href="/recipe_page/{{ chicken.id }}" style="text-decoration: none;">
+            <div class="recipe">
+                <img class="recipe-pic" src="static/first_app/images/ac.png" />
+                <h1>{{ chicken.title|title }}</h1>
+                <div class="icons">
+                    <div class="icon">
+                        <img src="static/first_app/images/time.png" />
+                        <p>{{ chicken.time_to_cook }} min</p>
+                    </div>
+                    <div class="icon">
+                        <img src="static/first_app/images/servings.png" />
+                        <p>{{ chicken.servings }} srvs</p>
+                    </div>
+                    <div class="icon">
+                        <img src="static/first_app/images/calories.png" />
+                        <p>{{ chicken.cals_per_serv }} cals</p>
+                    </div>
+                </div>
+            </div>
+        </a>
     </div>
 
     <div id="cover"></div>

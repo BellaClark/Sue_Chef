@@ -14,7 +14,11 @@
 
 <body>
     <div class="recipe-home">
-        <img class="recipe-pic" style="width:590px;" src="{{ recipe.recipe_photo.url }}" />
+        {% if recipe.id == 1 %}
+        <img class="recipe-pic" style="width:590px;" src="{% static 'first_app/images/tuna-poke.png' %}" />
+        {% else %}
+        <img class="recipe-pic" style="width:590px;" src="{% static 'first_app/images/apricot-chicken.png' %}" />
+        {% endif %}
     </div>
 
     <div class="recipe-home r-description">

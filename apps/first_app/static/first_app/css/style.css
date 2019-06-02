@@ -201,10 +201,13 @@ button{
 /* //////////////////////////////////////////////////////////// */
 
 .step-instruction{
-    text-align: center;
     padding: 20px 7vw;
     width: 80vw;
     height: 420px;
+}
+
+.step-instruction h1{
+    text-align: center;
 }
 
 span{

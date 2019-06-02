@@ -8,7 +8,8 @@ import math
 
 def index(request):
     variables = {
-        'recipes' : Recipe.objects.all(),
+        'tuna' : Recipe.objects.get(id=1),
+        'chicken' : Recipe.objects.get(id=2),
     }
     return render(request, 'first_app/index.html', variables)
 
