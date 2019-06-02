@@ -5,58 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="static/first_app/css/style.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'first_app/css/style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'first_app/images/fav.png' %}" />
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Libre+Baskerville|Montserrat" rel="stylesheet">
     <title>Sue Chef</title>
 </head>
 
 <body>
     <div class="recipe-home">
-        <img class="recipe-pic" style="width:590px;" src="static/first_app/images/tuna-poke.png" />
+        <img class="recipe-pic" style="width:590px;" src="{{ recipe.recipe_photo.url }}" />
     </div>
 
     <div class="recipe-home r-description">
-        <h1 style="width: 380px;">Tuna Poke</h1>
+        <h1 style="width: 390px;">{{ recipe.title|title }}</h1>
         <div class="icons">
             <div class="icon">
-                <img src="static/first_app/images/time.png" />
-                <p>30 min</p>
+                <img src="{% static 'first_app/images/time.png' %}" />
+                <p>{{ recipe.time_to_cook }} min</p>
             </div>
             <div class="icon">
-                <img src="static/first_app/images/servings.png" />
-                <p>4 srvs</p>
+                <img src="{% static 'first_app/images/servings.png' %}" />
+                <p>{{ recipe.servings }} srvs</p>
             </div>
             <div class="icon">
-                <img src="static/first_app/images/calories.png" />
-                <p>372 cals</p>
+                <img src="{% static 'first_app/images/calories.png' %}" />
+                <p>{{ recipe.cals_per_serv }} cals</p>
             </div>
         </div>
         <div>
+            {% for i in ingredients %}
             <div class="main-ingredient">
-                <h3>Tuna</h3>
+                <h3>{{ i.name }}</h3>
             </div>
-            <div class="main-ingredient">
-                <h3>Avocado</h3>
-            </div>
-            <div class="main-ingredient">
-                <h3>Mango</h3>
-            </div>
+            {% endfor %}
         </div>
         <div>
-            <p>This is not your average poke recipe. Made with juicy mango and creamy avocado, it explodes with unique
-                flavors.</p>
-            <p>A good party snack or fancy side to any meal, this recipe has been tested and tweaked to provide the most
-                pleasurable cooking experience and most delicous outcome.</p>
+            <p>{{ recipe.description_1 }}</p>
+            <p>{{ recipe.description_2 }}</p>
         </div>
-        <div class="all-set">
+        <!-- <div class="all-set">
             <img style="width:40px;" src="static/first_app/images/check.png"/>
             <h2>You're all set</h2>
-        </div>
-        <a href="/ingredients"><button>Get Cooking <img style="width:20px; padding-left: 15px;" src="static/first_app/images/arrow.png"/></button></a>
+        </div> -->
+        <a href="/ingredients/{{ recipe.id }}"><button>Get Cooking <img style="width:20px; padding-left: 15px;" src="{% static 'first_app/images/arrow.png' %}"/></button></a>
     </div>
 
     <div class="recipe-home logo">
-        <a href="/"><img class="recipe-pic" style="width:50px;" src="static/first_app/images/logo.png" /></a>
+        <a href="/"><img class="recipe-pic" style="width:50px;" src="{% static 'first_app/images/logo.png' %}" /></a>
     </div>
 </body>
 

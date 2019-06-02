@@ -138,7 +138,7 @@ link{
 }
 
 .recipe-home h1{
-    font-size: 45px;
+    font-size: 50px;
     color: #86a7a7;
     margin: 0px;
     margin-top: 30px;
@@ -153,7 +153,7 @@ link{
 
 .r-description p{
     color: #a7a9ac;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .logo{
@@ -164,10 +164,11 @@ link{
 
 .main-ingredient{
     display: inline-block;
-    margin: 40px 0px 10px 0px;
+    margin: 40px 0px 20px 0px;
     padding: 5px 15px;
-    border: 2px solid #86a7a7;
-    border-radius: 20px;
+    border-right: 2px solid #86a7a7;
+    border-left: 2px solid #86a7a7;
+    /* border-radius: 20px; */
     color: #86a7a7;
 }
 
@@ -189,12 +190,12 @@ link{
 button{
     background-color: #86a7a7;
     font-family: inherit;
-    font-size: 40px;
-    padding: 20px 40px;
+    font-size: 30px;
+    padding: 10px 30px;
     border: none;
     border-radius: 60px;
     color: white;
-    margin: 20px 0px;
+    margin: 50px 0px;
 }
 
 /* //////////////////////////////////////////////////////////// */
@@ -215,13 +216,24 @@ span{
 }
 
 .instruction-elements{
-    padding: 30px;
+    padding: 20px 0px;
+    vertical-align: top;
+    /* background-color: blue; */
+    text-align: left;
+    -webkit-column-width: 300px;
+    -moz-column-width: 300px;
+    column-width: 300px;
 }
 
-.instruction-elements h2{
-    display: inline-block;
-    padding: 0px 15px;
-    border-right: white solid 1px;
+.instruction-elements h3{
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+input[type=checkbox]{
+    padding: 20px;
+    border: none;
+    background-color: aqua;
 }
 
 .controls{
@@ -234,4 +246,12 @@ span{
 .controls img{
     display: inline-block;
     width: 120px;
+}
+
+.create_form{
+    padding: 40px;
+}
+
+input, textarea{
+    border: 1px solid black;
 }

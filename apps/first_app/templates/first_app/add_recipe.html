@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="static/first_app/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="{% static 'first_app/images/fav.png' %}" />
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Libre+Baskerville|Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Sue Chef</title>
@@ -14,7 +16,7 @@
 <body>
     <script>
         $(document).ready(function () {
-            
+
 
             $('.nav').on('click', function () {
                 $('#cover').css('opacity', '.6');
@@ -22,7 +24,7 @@
                 $('#menu').css('opacity', '1');
                 $('#menu').css('visibility', 'visible');
             });
-            
+
             $('.exit-menu').on('click', function () {
                 $('#cover').css('opacity', '0');
                 $('#cover').css('visibility', 'hidden');
@@ -43,23 +45,55 @@
         <a href="/"><img class="main-logo" src="static/first_app/images/logo-full.png" /></a>
         <a href="/"><img class="profile" src="static/first_app/images/profile.png" /></a>
     </div>
-    
-    <h2>add recipe</h2>
+
+    <div class="create_form">
+        <h2>Add a Recipe</h2>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/create_recipe" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>Title (must be all lower case) <input type="text" name="title"></p>
+            <p>Description 1<textarea style="width:400px; height:50px;" name="description_1"
+                    placeholder="Enter text here..."></textarea></p>
+            <p>Description 2<textarea style="width:400px; height:50px;" name="description_2"
+                    placeholder="Enter text here..."></textarea></p>
+            <p>Time to cook <input type="number" name="time_to_cook"></p>
+            <p>Servings <input type="number" name="servings"></p>
+            <p>Calories Per Serving <input type="number" name="cals_per_serv"></p>
+            <p>Main Photo <input type="file" name="main_photo"></p>
+            <p>Recipe Photo <input type="file" name="recipe_photo"></p>
+            <p>Total Steps <input type="number" name="total_steps"></p>
+            <button type="submit">Create</button>
+        </form>
+    </div>
+
 
     <div id="cover"></div>
     <div id="menu">
-        <img class="exit-menu" style="width:30px; padding: 70px 0px 40px 0px;" src="static/first_app/images/exit.png" />
+        <img class="exit-menu" style="width:30px; padding: 70px 0px 40px 0px;"
+            src="{% static 'first_app/images/exit.png' %}" />
         <div class="menu-option">
-            <img style="width:15px;" src="static/first_app/images/menu-arrow.png" />
-            <a href="/"><h2>All Recipes</h2></a>
+            <img style="width:15px;" src="{% static 'first_app/images/menu-arrow.png' %}" />
+            <a href="/">
+                <h2>All Recipes</h2>
+            </a>
         </div>
         <div class="menu-option">
-            <img style="width:15px;" src="static/first_app/images/menu-arrow.png" />
-            <a href="/add_recipe"><h2>Add a Recipe</h2></a>
+            <img style="width:15px;" src="{% static 'first_app/images/menu-arrow.png' %}" />
+            <a href="/add_recipe">
+                <h2>Add a Recipe</h2>
+            </a>
         </div>
         <div class="menu-option">
-            <img style="width:15px;" src="static/first_app/images/menu-arrow.png" />
-            <a href="/about"><h2>About</h2></a>
+            <img style="width:15px;" src="{% static 'first_app/images/menu-arrow.png' %}" />
+            <a href="/about">
+                <h2>About</h2>
+            </a>
         </div>
     </div>
 </body>

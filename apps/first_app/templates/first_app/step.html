@@ -13,28 +13,21 @@
     <title>Sue Chef</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/addons/p5.dom.js"></script>
-    <!-- <script src="../../static/first_app/js/p5.speech.js"></script> -->
-    <!-- <script src="../../static/first_app/js/sue_voice.js"></script> -->
-    <!-- <script src="../../static/first_app/js/sue.js"></script> -->
+    <!-- <script src="p5.speech.js"></script> -->
     <script src="https://github.com/IDMNYU/p5.js-speech/blob/master/lib/p5.speech.js"></script>
 </head>
 
 <body style="background-color: #86a7a7; padding: 20px 30px; color: white;">
-    <h2><span>Step</span> 1 <span>of</span> {{ recipe.total_steps }}</h2>
+    <h2><span>Step</span> {{ step.number }} <span>of</span> {{ recipe.total_steps }}</h2>
 
     <div class="step-instruction">
-        <h1>Lets get out the ingredients, you will need:</h1>
-        <div class="instruction-elements">
-            {% for ingredient in ingredients %}
-            <h3><input type="checkbox">{{ ingredient.amount }} {{ ingredient.measurement }} {{ ingredient.name }}</h3>
-            {% endfor %}
-        </div>
-    </div>
+        <h1 style="margin-top: 100px;">{{ step.phrase }}</h1>
+    </div> 
 
     <div class="controls" style="position:fixed;">
-        <a href="/recipe_page/{{recipe.id}}"><img class="arrow" src="{% static 'first_app/images/back.png' %}" /></a>
-        <a href="/ingredients/{{recipe.id}}"><img style="width:150px;" src="{% static 'first_app/images/replay.png' %}" /></a>
-        <a href="/tools/{{recipe.id}}"><img class="arrow" src="{% static 'first_app/images/next.png' %}" /></a>
+        <a href="/step/{{recipe.id}}/{{step.number|add:-1}}"><img class="arrow" src="{% static 'first_app/images/back.png' %}" /></a>
+        <a href="/step/{{recipe.id}}/{{step.number}}"><img style="width:150px;" src="{% static 'first_app/images/replay.png' %}" /></a>
+        <a href="/step/{{recipe.id}}/{{step.number|add:1 }}"><img class="arrow" src="{% static 'first_app/images/next.png' %}" /></a>
     </div>
 
     <div class="recipe-home logo">

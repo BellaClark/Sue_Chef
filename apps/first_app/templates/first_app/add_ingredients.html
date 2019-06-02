@@ -41,38 +41,28 @@
         });
     </script>
     <div class="header">
-        <a href="#"><img class="nav" src="static/first_app/images/menu.png" /></a>
-        <a href="/"><img class="main-logo" src="static/first_app/images/logo-full.png" /></a>
-        <!-- <a href="/"><img class="profile" src="static/first_app/images/profile.png" /></a> -->
+        <a href="#"><img class="nav" src="{% static 'first_app/images/menu.png' %}" /></a>
+        <a href="/"><img class="main-logo" src="{% static 'first_app/images/logo-full.png' %}" /></a>
+        <a href="/"><img class="profile" src="{% static 'first_app/images/profile.png' %}" /></a>
     </div>
 
-    <div class="search">
-        <p>Search</p>
-    </div>
-
-    <div class="recipes">
-        {% for r in recipes %}
-        <a href="/recipe_page/{{ r.id }}" style="text-decoration: none;">
-            <div class="recipe">
-                <img class="recipe-pic" src="{{ r.main_photo.url }}" />
-                <h1>{{ r.title|title }}</h1>
-                <div class="icons">
-                    <div class="icon">
-                        <img src="static/first_app/images/time.png" />
-                        <p>{{ r.time_to_cook }} min</p>
-                    </div>
-                    <div class="icon">
-                        <img src="static/first_app/images/servings.png" />
-                        <p>{{ r.servings }} srvs</p>
-                    </div>
-                    <div class="icon">
-                        <img src="static/first_app/images/calories.png" />
-                        <p>{{ r.cals_per_serv }} cals</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        {% endfor %}
+    <div class="create_form">
+        <h2>Add an Ingredient to {{ recipe.title|title }}</h2>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/create_ingredient/{{ recipe.id }}" method="POST">
+            {% csrf_token %}
+            <p>Amount (number) <input type="number" name="amount"></p>
+            <p>Measurement (ex: tablespoon) <input type="text" name="measurement"></p>
+            <p>Name (must be all lower case) <input type="text" name="name"></p>
+            <button type="submit">Create</button>
+        </form>
+        <a href="/add_tools/{{recipe.id}}"><button>add tools</button></a>
     </div>
 
     <div id="cover"></div>
