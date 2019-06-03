@@ -24,7 +24,8 @@
         <h1>Lets get out the tools, you will need:</h1>
         <div class="instruction-elements">
             {% for tool in tools %}
-            <h3><input type="checkbox">{{ tool.amount }} {{ tool.measurement }} {{ tool.name }}</h3>
+            <!-- <h3><input type="checkbox">{{ tool.amount }} {{ tool.measurement }} {{ tool.name }}</h3> -->
+            <h3>{{ tool.amount }} {{ tool.measurement }} {{ tool.name }}</h3>
             {% endfor %}
         </div>
     </div>
