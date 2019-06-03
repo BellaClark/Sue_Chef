@@ -234,8 +234,9 @@ span{
 }
 
 input[type=checkbox]{
-    /* padding: 20px; */
+    padding: 0px;
     border: none;
+    background-color: white;
 }
 
 .controls{
