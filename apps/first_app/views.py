@@ -228,3 +228,13 @@ def end_recipe(request, recipe_id):
         'recipe' : Recipe.objects.get(id = recipe_id),
     }
     return render(request, 'first_app/finished_recipe.html', variables)
+
+def search(request):
+    if request.method == 'POST':
+        search = (request.POST['search']).lower()
+        variables = {
+            'results' : Recipe.objects.filter(title__contains = search),
+            'tuna' : Recipe.objects.get(id=1),
+            'chicken' : Recipe.objects.get(id=2),
+        }
+    return render(request, 'first_app/search_results.html', variables)

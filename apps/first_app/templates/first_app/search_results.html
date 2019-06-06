@@ -55,6 +55,11 @@
     </div>
 
     <div class="recipes">
+        {% if not results %}
+        <p>no search results</p>
+        {% else %}
+        {% for r in results %}
+        {% if r.title == "tuna poke" %}
         <a href="/recipe_page/{{ tuna.id }}" style="text-decoration: none;">
             <div class="recipe">
                 <img class="recipe-pic" src="static/first_app/images/tp.png" />
@@ -75,6 +80,7 @@
                 </div>
             </div>
         </a>
+        {% else %}
         <a href="/recipe_page/{{ chicken.id }}" style="text-decoration: none;">
             <div class="recipe">
                 <img class="recipe-pic" src="static/first_app/images/ac.png" />
@@ -95,6 +101,9 @@
                 </div>
             </div>
         </a>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
     </div>
 
     <div id="cover"></div>
@@ -107,12 +116,12 @@
                 <h2>All Recipes</h2>
             </a>
         </div>
-        <!-- <div class="menu-option">
+        <div class="menu-option">
             <img style="width:15px;" src="{% static 'first_app/images/menu-arrow.png' %}" />
             <a href="/add_recipe">
                 <h2>Add a Recipe</h2>
             </a>
-        </div> -->
+        </div>
         <div class="menu-option">
             <img style="width:15px;" src="{% static 'first_app/images/menu-arrow.png' %}" />
             <a href="/about">

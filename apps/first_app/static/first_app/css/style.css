@@ -49,6 +49,13 @@ link{
     margin-top: 0px;
 }
 
+.search form input{
+    border: none;
+    font-size: 15px;
+    padding: 10px 30px;
+    font-family: inherit;
+}
+
 .recipes{
     text-align: center;
 }
@@ -204,9 +211,6 @@ button{
     padding: 10px 7vw;
     width: 80vw;
     height: 420px;
-}
-
-.step-instruction h1{
     text-align: center;
 }
 
@@ -257,4 +261,12 @@ input[type=checkbox]{
 
 input, textarea{
     border: 1px solid black;
+}
+
+.about{
+    text-align: center;
+    margin: 20px 10vw;
+    padding: 70px 20px;
+    line-height: 30px;
+    border-top: 1px solid #cacac9;
 }

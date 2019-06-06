@@ -11,11 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="{% static 'first_app/images/fav.png' %}" />
     <title>Sue Chef</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/addons/p5.dom.js"></script>
-    <!-- <script src="../../static/first_app/js/p5.speech.js"></script> -->
-    <!-- <script src="../../static/first_app/js/sue_voice.js"></script> -->
-    <!-- <script src="../../static/first_app/js/sue.js"></script> -->
     <script src="https://github.com/IDMNYU/p5.js-speech/blob/master/lib/p5.speech.js"></script>
 </head>
 
@@ -34,7 +29,8 @@
 
     <div class="controls" style="position:fixed;">
         <a href="/recipe_page/{{recipe.id}}"><img class="arrow" src="{% static 'first_app/images/back.png' %}" /></a>
-        <a href="/ingredients/{{recipe.id}}"><img style="width:150px;" src="{% static 'first_app/images/replay.png' %}" /></a>
+        <a href="/ingredients/{{recipe.id}}"><img style="width:150px;"
+                src="{% static 'first_app/images/replay.png' %}" /></a>
         <a href="/tools/{{recipe.id}}"><img class="arrow" src="{% static 'first_app/images/next.png' %}" /></a>
     </div>
 

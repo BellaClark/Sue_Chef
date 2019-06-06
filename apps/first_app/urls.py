@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^add_steps/(?P<recipe_id>\d+)$', views.add_steps),
     url(r'^create_step/(?P<recipe_id>\d+)$', views.create_step),
     url(r'^end_recipe/(?P<recipe_id>\d+)$', views.end_recipe),
+    url(r'^search$', views.search),
 ]
 
 if settings.DEBUG:
